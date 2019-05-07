@@ -2,10 +2,11 @@
 
 ## Type command in terminal/cmd
 
-```
-node write.js
-```
+1. ```npm install```
+2. Create your .env file and add get url on line 7
+3. ```node write.js```
 
 ## Update
 
 Added env variables to protect urls from the nasty people scraping github. Let me know if you would like it
+
