@@ -37,14 +37,38 @@ http(process.env.qalamurl, function (error, response, body) {
     var json = fs.readFileSync('seerah.json');
     var seerah = JSON.parse(json);
     for(var i = 0; i < seerah.length; i++){
-      let name = seerah[i].name;
-      let url = seerah[i].url;
+      var name = seerah[i].name;
+      var url = seerah[i].url;
+      if(name.includes("epsiode")){
+        var newname = name.replace('epsiode', 'episode')
+      } 
+      else if(name.includes("intro_a")){
+        var newname = name.replace('seerah_intro_a', 'seerah_episode_1')
+      } 
+      else if(name.includes("intro_b")){
+        var newname = name.replace('intro_b', 'episode_2')
+      } 
+      else if(name.includes("pre_islamic_society_a")){
+        var newname = name.replace('pre_islamic_society_a', 'episode_3')
+      } 
+      else if(name.includes("pre_islamic_society_b")){
+        var newname = name.replace('pre_islamic_society_b', 'episode_4')
+      } 
+      else if(name.includes("monotheism_before_islam")){
+        var newname = name.replace('monotheism_before_islam', 'episode_5')
+      } 
+      else if(name.includes("history_of_zamzam")){
+        var newname = name.replace('history_of_zamzam', 'episode_6')
+      }else{
+        var newname = name;
+      }
+      console.log(newname);
       http
         .get(url)
         .on('error', function(err) {
           // handle error
         })
-        .pipe(fs.createWriteStream('./seerah_files/'+name+'.mp3'));
+        .pipe(fs.createWriteStream('./seerah_files/'+newname+'.mp3'));
     } 
   });
 });
