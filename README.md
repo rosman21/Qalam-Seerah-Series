@@ -3,7 +3,7 @@
 ## Type command in terminal/cmd
 
 1. ```npm install```
-2. Create your .env file and add get url on line 7
+2. Create your .env file and add get url on write.js line 7
 3. ```node write.js```
 
 ## Update
