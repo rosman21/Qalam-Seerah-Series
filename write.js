@@ -1,9 +1,10 @@
+require('dotenv').config();
 const cheerio = require('cheerio');
 const http = require('request');
 const fs = require('fs');
 const array = [];
 var dir = './seerah_files';
-http('http://qalaminstitute.org/podcast/audio/seerah/?C=M;O=A', function (error, response, body) {
+http(process.env.qalamurl, function (error, response, body) {
   if (!fs.existsSync(dir)){
     fs.mkdirSync(dir);
 }

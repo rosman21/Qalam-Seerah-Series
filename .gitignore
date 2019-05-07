@@ -2,3 +2,4 @@ node_modules
 seerah_files
 .DS_STORE
 seerah.json
+.env
